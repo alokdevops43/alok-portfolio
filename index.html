@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="chatbot.css" />
 </head>
 <body>
 
@@ -210,5 +211,52 @@
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- ===================== ASK ALOK CHATBOT ===================== -->
+  <div id="askAlok" class="chatbot" aria-label="Ask Alok chat assistant">
+    <!-- Floating trigger button -->
+    <button class="chatbot__fab" id="chatbotFab" aria-label="Open Ask Alok chat" aria-expanded="false">
+      <svg class="chatbot__fab-icon chatbot__fab-icon--chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <svg class="chatbot__fab-icon chatbot__fab-icon--close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+
+    <!-- Chat panel -->
+    <div class="chatbot__panel" id="chatbotPanel" role="dialog" aria-label="Ask Alok chat window">
+      <!-- Header -->
+      <div class="chatbot__header">
+        <div class="chatbot__header-info">
+          <div class="chatbot__avatar">A</div>
+          <div>
+            <div class="chatbot__header-title">Ask Alok</div>
+            <div class="chatbot__header-sub"><span class="chatbot__status-dot"></span>Explore my portfolio</div>
+          </div>
+        </div>
+        <div class="chatbot__header-actions">
+          <button class="chatbot__btn-icon" id="chatbotClear" aria-label="Clear chat" title="Clear chat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          </button>
+          <button class="chatbot__btn-icon" id="chatbotClose" aria-label="Close chat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Messages area -->
+      <div class="chatbot__messages" id="chatbotMessages" role="log" aria-live="polite"></div>
+
+      <!-- Suggested questions -->
+      <div class="chatbot__suggestions" id="chatbotSuggestions"></div>
+
+      <!-- Input area -->
+      <form class="chatbot__input-area" id="chatbotForm" autocomplete="off">
+        <input type="text" class="chatbot__input" id="chatbotInput" placeholder="Ask about Alok…" aria-label="Type your question" maxlength="300" />
+        <button type="submit" class="chatbot__send" id="chatbotSend" aria-label="Send message">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="chatbot.js"></script>
 </body>
 </html>
